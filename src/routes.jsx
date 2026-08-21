@@ -62,7 +62,6 @@ const routes = () => {
                 </Route>
 
                 <Route element={<Layout />}>
-
                     <Route path="/superdashboard" element={<SuperDashboard />} />
                     <Route path="/superdashboard/schools" element={<AddSchool />} />
                     <Route path="/superdashboard/schools/credentials" element={<SchoolCredentials />} />
