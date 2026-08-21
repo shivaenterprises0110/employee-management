@@ -9,7 +9,7 @@ import {
 
 export default function Dashboard() {
   const school = JSON.parse(localStorage.getItem("de_authUser"));
-
+  const [schoolName, setSchoolName] = useState("");
   const [stats, setStats] = useState({
     students: 0,
     drivers: 0,
@@ -21,8 +21,8 @@ export default function Dashboard() {
     hour < 12
       ? "Good Morning"
       : hour < 18
-      ? "Good Afternoon"
-      : "Good Evening";
+        ? "Good Afternoon"
+        : "Good Evening";
 
   useEffect(() => {
     fetchDashboard();
@@ -32,10 +32,11 @@ export default function Dashboard() {
     try {
       const schoolId = school.school_id;
 
-      const [studentsRes, driversRes, busesRes] = await Promise.all([
+      const [studentsRes, driversRes, busesRes, schoolRes] = await Promise.all([
         axios.get(`${API_URL}/students/school/${schoolId}`),
         axios.get(`${API_URL}/drivers/school/${schoolId}`),
         axios.get(`${API_URL}/buses/school/${schoolId}`),
+        axios.get(`${API_URL}/schools`),
       ]);
 
       setStats({
@@ -43,6 +44,13 @@ export default function Dashboard() {
         drivers: driversRes.data.length,
         buses: busesRes.data.buses.length,
       });
+
+      const currentSchool = schoolRes.data.find(
+        (s) => s.id === schoolId
+      );
+
+      setSchoolName(currentSchool?.school_name || "School");
+
     } catch (err) {
       console.error("Dashboard Error:", err);
     }
@@ -76,7 +84,9 @@ export default function Dashboard() {
 
       <div className="rounded-3xl bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600 p-8 text-white shadow-xl">
         <h1 className="text-4xl font-bold">
-          {greeting}, {school?.name} 👋
+          {/* {greeting},  */}
+          {schoolName} 
+          {/* 👋 */}
         </h1>
 
         <p className="mt-3 text-lg text-blue-100">

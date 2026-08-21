@@ -13,6 +13,8 @@ export default function StudentDetails() {
 
   const [student, setStudent] = useState(null);
 
+  const [schoolName, setSchoolName] = useState("");
+
   useEffect(() => {
     fetchStudent();
   }, []);
@@ -30,7 +32,7 @@ export default function StudentDetails() {
 
       setStudent(res.data.student);
 
-      // Fetch bus name
+      // Fetch bus number
       const busRes = await axios.get(
         `${API_URL}/buses/${res.data.student.bus_id}`
       );
@@ -38,6 +40,14 @@ export default function StudentDetails() {
       if (busRes.data.success) {
         setBusName(busRes.data.bus.bus_number);
       }
+
+      // Fetch school name
+      const schoolRes = await axios.get(`${API_URL}/schools`);
+      const school = schoolRes.data.find(
+        (s) => s.id === loggedSchool.school_id
+      );
+
+      setSchoolName(school?.school_name || "Unknown School");
 
     } catch (err) {
       console.error(err);
@@ -83,7 +93,7 @@ export default function StudentDetails() {
 
         <div>
           <label className="font-semibold">School</label>
-          <p>{loggedSchool.name}</p>
+          <p>{schoolName}</p>
         </div>
 
         <div>

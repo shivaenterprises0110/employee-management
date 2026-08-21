@@ -7,7 +7,7 @@ import { FaBus } from "react-icons/fa";
 export default function BusDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const [schoolName, setSchoolName] = useState("");
   const [bus, setBus] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -15,29 +15,37 @@ export default function BusDetails() {
     fetchBus();
   }, []);
 
- const fetchBus = async () => {
-  try {
-    const res = await axios.get(`${API_URL}/buses/${id}`);
+  const fetchBus = async () => {
+    try {
+      const school = JSON.parse(localStorage.getItem("de_authUser"));
 
-    const school = JSON.parse(localStorage.getItem("de_authUser"));
+      const res = await axios.get(`${API_URL}/buses/${id}`);
 
-    if (res.data.success) {
-      // Security check
-      if (res.data.bus.school_id !== school.school_id) {
-        alert("Unauthorized access");
-        navigate("/school/buses");
-        return;
+      if (res.data.success) {
+        // Security check
+        if (res.data.bus.school_id !== school.school_id) {
+          alert("Unauthorized access");
+          navigate("/school/buses");
+          return;
+        }
+
+        setBus(res.data.bus);
+
+        // Fetch school name
+        const schoolsRes = await axios.get(`${API_URL}/schools`);
+        const currentSchool = schoolsRes.data.find(
+          (s) => s.id === res.data.bus.school_id
+        );
+
+        setSchoolName(currentSchool?.school_name || "Unknown School");
       }
-
-      setBus(res.data.bus);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to load bus details.");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.error(err);
-    alert("Failed to load bus details.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   if (loading) {
     return (
@@ -149,21 +157,21 @@ export default function BusDetails() {
             </p>
           </div> */}
 
-          <div>
+          {/* <div>
             <label className="text-gray-500">
               Route Name
             </label>
             <p className="font-semibold text-lg">
               {bus.route_name}
             </p>
-          </div>
+          </div> */}
 
           <div>
             <label className="text-gray-500">
               School
             </label>
             <p className="font-semibold text-lg">
-              {JSON.parse(localStorage.getItem("de_authUser"))?.name}
+              {schoolName}
             </p>
           </div>
 

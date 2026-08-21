@@ -11,7 +11,7 @@ export default function StudentList() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [busMap, setBusMap] = useState({});
-
+  const [schoolName, setSchoolName] = useState("");
   useEffect(() => {
     fetchStudents();
   }, []);
@@ -22,14 +22,13 @@ export default function StudentList() {
 
       const school = JSON.parse(localStorage.getItem("de_authUser"));
 
-      // Students of logged-in school
+      // Students
       const studentRes = await axios.get(
         `${API_URL}/students/school/${school.school_id}`
       );
-
       setStudents(studentRes.data.students || []);
 
-      // Buses of logged-in school
+      // Buses
       const busRes = await axios.get(
         `${API_URL}/buses/school/${school.school_id}`
       );
@@ -38,8 +37,15 @@ export default function StudentList() {
       (busRes.data.buses || []).forEach((bus) => {
         map[bus.id] = bus.bus_number;
       });
-
       setBusMap(map);
+
+      // School name
+      const schoolRes = await axios.get(`${API_URL}/schools`);
+      const currentSchool = schoolRes.data.find(
+        (s) => s.id === school.school_id
+      );
+
+      setSchoolName(currentSchool?.school_name || "Unknown School");
 
     } catch (err) {
       console.error(err);
@@ -121,22 +127,22 @@ export default function StudentList() {
           <table className="min-w-full">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="p-3 text-left">Student</th>
+                <th className="p-3 text-center">Student</th>
                 {/* <th className="p-3">ID</th> */}
-                <th className="p-3">Parent</th>
-                <th className="p-3">Phone</th>
-                <th className="p-3">School</th>
-                <th className="p-3">Bus Number</th>
-                <th className="p-3">Pickup</th>
-                <th className="p-3"></th>
-                <th className="p-3">Actions</th>
+                <th className="p-3 text-center">Parent</th>
+                <th className="p-3 text-center">Phone</th>
+                <th className="p-3 text-center">School</th>
+                <th className="p-3 text-center">Bus Number</th>
+                <th className="p-3 text-center">Pickup</th>
+                {/* <th className="p-3 text-center">Drop</th> */}
+                <th className="p-3 text-center">Actions</th>
               </tr>
             </thead>
 
             <tbody>
               {filteredStudents.map((student) => (
                 <tr key={student.id} className="border-b">
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     {student.student_name}
                   </td>
 
@@ -144,31 +150,31 @@ export default function StudentList() {
                     {student.id}
                   </td> */}
 
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     {student.parent_name}
                   </td>
 
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     {student.parent_phone}
                   </td>
 
-                  <td className="p-3">
-                    {loggedSchool?.name}
+                  <td className="p-3 text-center">
+                    {schoolName}
                   </td>
 
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     {busMap[student.bus_id] || "N/A"}
                   </td>
 
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     {student.pickup_point}
                   </td>
 
-                  <td className="p-3">
+                  {/* <td className="p-3 text-center">
                     {student.drop_point}
-                  </td>
+                  </td> */}
 
-                  <td className="p-3">
+                  <td className="p-3 text-center">
                     <div className="flex justify-center gap-3">
 
                       {/* View */}

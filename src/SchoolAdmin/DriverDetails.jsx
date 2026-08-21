@@ -11,35 +11,45 @@ export default function DriverDetails() {
   const [driver, setDriver] = useState(null);
   const [loading, setLoading] = useState(true);
   const [busName, setBusName] = useState("");
+  const [schoolName, setSchoolName] = useState("");
   useEffect(() => {
     fetchDriver();
   }, []);
 
   const fetchDriver = async () => {
-    try {
-      const res = await axios.get(`${API_URL}/drivers/${id}`);
+  try {
+    const res = await axios.get(`${API_URL}/drivers/${id}`);
 
-      // Security check
-      if (res.data.school_id !== loggedSchool.school_id) {
-        alert("Unauthorized access");
-        navigate("/school/drivers");
-        return;
-      }
-
-      setDriver(res.data);
-
-      const busRes = await axios.get(`${API_URL}/buses/${res.data.bus_id}`);
-      if (busRes.data.success) {
-        setBusName(busRes.data.bus.bus_name);
-      }
-
-    } catch (err) {
-      console.error(err);
-      alert("Failed to load driver.");
-    } finally {
-      setLoading(false);
+    // Security check
+    if (res.data.school_id !== loggedSchool.school_id) {
+      alert("Unauthorized access");
+      navigate("/school/drivers");
+      return;
     }
-  };
+
+    setDriver(res.data);
+
+    // Fetch bus name
+    const busRes = await axios.get(`${API_URL}/buses/${res.data.bus_id}`);
+    if (busRes.data.success) {
+      setBusName(busRes.data.bus.bus_name);
+    }
+
+    // Fetch school name using logged-in school_id
+    const schoolsRes = await axios.get(`${API_URL}/schools`);
+    const school = schoolsRes.data.find(
+      (s) => s.id === loggedSchool.school_id
+    );
+
+    setSchoolName(school?.school_name || "Unknown School");
+
+  } catch (err) {
+    console.error(err);
+    alert("Failed to load driver.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (loading) {
     return <div className="p-8 text-center">Loading driver...</div>;
@@ -87,7 +97,7 @@ export default function DriverDetails() {
 
           <div>
             <label className="font-semibold text-gray-500">School</label>
-            <p className="mt-1">{loggedSchool.name}</p>
+            <p className="mt-1">{schoolName}</p>
           </div>
 
           <div>

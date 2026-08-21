@@ -224,7 +224,10 @@ export default function AddBus() {
             >
               Save Bus
             </button>
-            <button onClick={() => navigate("/school/dashboard")}
+            
+            <button 
+            type="button"
+            onClick={() => navigate("/school/dashboard")}
               className="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg"
             >
               Cancel

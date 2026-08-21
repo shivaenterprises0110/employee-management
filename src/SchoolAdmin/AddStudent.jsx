@@ -116,7 +116,7 @@ export default function AddStudent() {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               Student ID
             </label>
@@ -126,9 +126,9 @@ export default function AddStudent() {
               placeholder="Enter student ID"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               School Name
             </label>
@@ -138,7 +138,7 @@ export default function AddStudent() {
               placeholder="Enter school name"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
-          </div>
+          </div> */}
 
           {/* Parent Information */}
 
@@ -259,7 +259,7 @@ export default function AddStudent() {
             </h2>
           </div>
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               User ID
             </label>
@@ -269,7 +269,7 @@ export default function AddStudent() {
               placeholder="Enter user ID"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
-          </div>
+          </div> */}
 
           <div>
             <label className="block mb-2 font-medium text-gray-700">
@@ -310,7 +310,9 @@ export default function AddStudent() {
             >
               Save Student
             </button>
-            <button onClick={() => navigate("/school/dashboard")}
+            <button
+              type="button"
+              onClick={() => navigate("/school/dashboard")}
               className="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg"
             >
               Cancle

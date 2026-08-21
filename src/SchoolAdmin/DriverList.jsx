@@ -13,7 +13,7 @@ export default function DriverList() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const [buses, setBuses] = useState([]);
   const navigate = useNavigate();
 
   const fetchDrivers = async () => {
@@ -23,11 +23,19 @@ export default function DriverList() {
 
       const school = JSON.parse(localStorage.getItem("de_authUser"));
 
-      const res = await axios.get(
+      // Drivers of logged-in school
+      const driverRes = await axios.get(
         `${API_URL}/drivers/school/${school.school_id}`
       );
 
-      setDrivers(res.data || []);
+      // Buses of logged-in school
+      const busRes = await axios.get(
+        `${API_URL}/buses/school/${school.school_id}`
+      );
+
+      setDrivers(driverRes.data || []);
+      setBuses(busRes.data.buses || []);
+
     } catch (err) {
       console.error(err);
       setError("Failed to load drivers.");
@@ -95,22 +103,23 @@ export default function DriverList() {
           <table className="w-full">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="p-4 text-left">Driver</th>
-                <th className="p-4">ID</th>
-                <th className="p-4">Phone</th>
+                <th className="p-4 text-center">Driver</th>
+                {/* <th className="p-4">ID</th> */}
+                <th className="p-4 text-center">Phone</th>
                 {/* <th className="p-4">License</th> */}
-                <th className="p-4">Bus</th>
-                <th className="p-4">Actions</th>
+                <th className="p-4 text-center">Bus</th>
+                <th className="p-4 text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredDrivers.map((driver) => (
                 <tr key={driver.id} className="border-b">
-                  <td className="p-4">{driver.driver_name}</td>
-                  <td className="p-4">{driver.id}</td>
-                  <td className="p-4">{driver.phone}</td>
+                  <td className="p-4 text-center"> {driver.driver_name}</td>
+                  {/* <td className="p-4">{driver.id}</td> */}
+                  <td className="p-4 text-center">{driver.phone}</td>
                   {/* <td className="p-4">{driver.license_number}</td> */}
-                  <td className="p-4">{driver.bus_id}</td>
+                  <td className="p-4 text-center"> {buses.find((b) => b.id === driver.bus_id)?.bus_name || "Not Assigned"}
+                  </td>
                   <td className="p-4">
                     <div className="flex justify-center gap-3">
                       <button
