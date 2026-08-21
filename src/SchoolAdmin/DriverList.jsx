@@ -98,7 +98,7 @@ export default function DriverList() {
                 <th className="p-4 text-left">Driver</th>
                 <th className="p-4">ID</th>
                 <th className="p-4">Phone</th>
-                <th className="p-4">License</th>
+                {/* <th className="p-4">License</th> */}
                 <th className="p-4">Bus</th>
                 <th className="p-4">Actions</th>
               </tr>
@@ -109,7 +109,7 @@ export default function DriverList() {
                   <td className="p-4">{driver.driver_name}</td>
                   <td className="p-4">{driver.id}</td>
                   <td className="p-4">{driver.phone}</td>
-                  <td className="p-4">{driver.license_number}</td>
+                  {/* <td className="p-4">{driver.license_number}</td> */}
                   <td className="p-4">{driver.bus_id}</td>
                   <td className="p-4">
                     <div className="flex justify-center gap-3">
