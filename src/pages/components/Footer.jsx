@@ -69,7 +69,7 @@ export default function Footer() {
 
       <div className="text-center mt-8 text-sm">
 
-        © 2025 DonateEasy. All rights reserved.
+        © 2026 VisionTrack. All rights reserved.
 
       </div>
 
