@@ -17,39 +17,39 @@ export default function DriverDetails() {
   }, []);
 
   const fetchDriver = async () => {
-  try {
-    const res = await axios.get(`${API_URL}/drivers/${id}`);
+    try {
+      const res = await axios.get(`${API_URL}/drivers/${id}`);
 
-    // Security check
-    if (res.data.school_id !== loggedSchool.school_id) {
-      alert("Unauthorized access");
-      navigate("/school/drivers");
-      return;
+      // Security check
+      if (res.data.school_id !== loggedSchool.school_id) {
+        alert("Unauthorized access");
+        navigate("/school/drivers");
+        return;
+      }
+
+      setDriver(res.data);
+
+      // Fetch bus name
+      const busRes = await axios.get(`${API_URL}/buses/${res.data.bus_id}`);
+      if (busRes.data.success) {
+        setBusName(busRes.data.bus.bus_name);
+      }
+
+      // Fetch school name using logged-in school_id
+      const schoolsRes = await axios.get(`${API_URL}/schools`);
+      const school = schoolsRes.data.find(
+        (s) => s.id === loggedSchool.school_id
+      );
+
+      setSchoolName(school?.school_name || "Unknown School");
+
+    } catch (err) {
+      console.error(err);
+      alert("Failed to load driver.");
+    } finally {
+      setLoading(false);
     }
-
-    setDriver(res.data);
-
-    // Fetch bus name
-    const busRes = await axios.get(`${API_URL}/buses/${res.data.bus_id}`);
-    if (busRes.data.success) {
-      setBusName(busRes.data.bus.bus_name);
-    }
-
-    // Fetch school name using logged-in school_id
-    const schoolsRes = await axios.get(`${API_URL}/schools`);
-    const school = schoolsRes.data.find(
-      (s) => s.id === loggedSchool.school_id
-    );
-
-    setSchoolName(school?.school_name || "Unknown School");
-
-  } catch (err) {
-    console.error(err);
-    alert("Failed to load driver.");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   if (loading) {
     return <div className="p-8 text-center">Loading driver...</div>;
@@ -78,6 +78,10 @@ export default function DriverDetails() {
           <div>
             <label className="font-semibold text-gray-500">Driver Name</label>
             <p className="mt-1">{driver.driver_name}</p>
+          </div>
+          <div>
+            <label className="font-semibold text-gray-500">Email</label>
+            <p className="mt-1">{driver.email}</p>
           </div>
 
           {/* <div>

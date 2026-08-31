@@ -125,7 +125,7 @@ export default function EditDriver() {
               <option value="">Select Bus</option>
               {buses.map((bus) => (
                 <option key={bus.id} value={bus.id}>
-                  {bus.bus_number} - {bus.bus_name}
+                  {bus.bus_number} - {bus.vehicle_registration_number}
                 </option>
               ))}
             </select>
