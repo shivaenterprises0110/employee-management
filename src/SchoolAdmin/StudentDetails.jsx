@@ -85,7 +85,10 @@ export default function StudentDetails() {
           <label className="font-semibold">Parent Name</label>
           <p>{student.parent_name}</p>
         </div>
-
+        <div>
+          <label className="font-semibold">Parent Email</label>
+          <p>{student.parent_email}</p>
+        </div>
         <div>
           <label className="font-semibold">Phone</label>
           <p>{student.parent_phone}</p>
