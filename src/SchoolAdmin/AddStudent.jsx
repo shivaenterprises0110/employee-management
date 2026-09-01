@@ -1,8 +1,11 @@
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../api";
 export default function AddStudent() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -11,6 +14,17 @@ export default function AddStudent() {
       alert("Passwords do not match");
       return;
     }
+
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if (!passwordRegex.test(student.password)) {
+      alert(
+        "Password must be at least 8 characters and contain uppercase, lowercase, number, and special character."
+      );
+      return;
+    }
+
 
     try {
       const res = await axios.post(`${API_URL}/students`, {
@@ -275,16 +289,24 @@ export default function AddStudent() {
             <label className="block mb-2 font-medium text-gray-700">
               Password
             </label>
-
-            <input
-              type="password"
-              value={student.password}
-              onChange={(e) =>
-                setStudent({ ...student, password: e.target.value })
-              }
-              placeholder="Enter password"
-              className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={student.password}
+                onChange={(e) =>
+                  setStudent({ ...student, password: e.target.value })
+                }
+                placeholder="Enter password"
+                className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 pr-12 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
           </div>
 
           <div>
@@ -292,15 +314,26 @@ export default function AddStudent() {
               Confirm Password
             </label>
 
-            <input
-              type="password"
-              value={student.confirmPassword}
-              onChange={(e) =>
-                setStudent({ ...student, confirmPassword: e.target.value })
-              }
-              placeholder="Confirm password"
-              className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
-            />
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                value={student.confirmPassword}
+                onChange={(e) =>
+                  setStudent({ ...student, confirmPassword: e.target.value })
+                }
+                placeholder="Confirm password"
+                className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 pr-12 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              />
+              <button
+                type="button"
+                onClick={() =>
+                  setShowConfirmPassword(!showConfirmPassword)
+                }
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              >
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
           </div>
 
           <div className="md:col-span-2 mt-4 gap-4 flex justify-end">
