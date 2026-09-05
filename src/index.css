@@ -14,3 +14,9 @@ input::-webkit-credentials-auto-fill-button {
   visibility: hidden;
   display: none !important;
 }
+/* Keep Leaflet below drawers and modals */
+.leaflet-container,
+.leaflet-pane,
+.leaflet-control {
+  z-index: 0 !important;
+}

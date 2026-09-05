@@ -23,6 +23,7 @@ import EditDriver from "./SchoolAdmin/EditDriver";
 // Student Pages
 import StudentDetails from "./SchoolAdmin/StudentDetails";
 import EditStudent from "./SchoolAdmin/EditStudent";
+import LiveTracking from "./SchoolAdmin/LiveTracking";
 
 const routes = () => {
     return (
@@ -59,6 +60,12 @@ const routes = () => {
                         path="/school/students/edit/:id"
                         element={<EditStudent />}
                     />
+                    
+                    <Route
+                        path="/school/live-tracking"
+                        element={<LiveTracking />}
+                    />
+
                 </Route>
 
                 <Route element={<Layout />}>

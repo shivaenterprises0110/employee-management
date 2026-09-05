@@ -4,6 +4,7 @@ import {
   FaHome,
   FaUserGraduate,
   FaBus,
+  FaMapMarkedAlt,
   FaChevronDown,
   FaChevronRight,
   FaSignOutAlt,
@@ -22,10 +23,9 @@ export default function SchoolSidebar({
   const [busesOpen, setBusesOpen] = useState(true);
 
   const menuClass = (path) =>
-    `block px-10 py-2 rounded-lg transition ${
-      location.pathname === path
-        ? "bg-blue-600 text-white"
-        : "text-gray-300 hover:bg-slate-700 hover:text-white"
+    `block px-10 py-2 rounded-lg transition ${location.pathname === path
+      ? "bg-blue-600 text-white"
+      : "text-gray-300 hover:bg-slate-700 hover:text-white"
     }`;
 
   return (
@@ -43,11 +43,10 @@ export default function SchoolSidebar({
 
       <div
         className={`fixed top-0 left-0 h-screen w-72 bg-slate-900 text-white z-50 flex flex-col transform transition-transform duration-300
-        ${
-          sidebarOpen
+        ${sidebarOpen
             ? "translate-x-0"
             : "-translate-x-full"
-        }`}
+          }`}
       >
         {/* Header */}
 
@@ -88,11 +87,10 @@ export default function SchoolSidebar({
           <Link
             to="/school/dashboard"
             onClick={() => setSidebarOpen(false)}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${
-              location.pathname === "/school/dashboard"
-                ? "bg-blue-600"
-                : "hover:bg-slate-700"
-            }`}
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${location.pathname === "/school/dashboard"
+              ? "bg-blue-600"
+              : "hover:bg-slate-700"
+              }`}
           >
             <FaHome />
             Dashboard
@@ -218,13 +216,25 @@ export default function SchoolSidebar({
               >
                 List Buses
               </Link>
-
             </div>
           )}
 
         </div>
 
-        {/* Logout */}
+        {/* Live Tracking */}
+
+        <div className="border-t border-slate-700 p-4">
+
+          <button
+            onClick={() => navigate("/school/live-tracking")}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-600 transition"
+          >
+            <FaMapMarkedAlt />
+            Live Tracking
+          </button>
+
+        </div>
+
 
         <div className="border-t border-slate-700 p-4">
 
