@@ -264,7 +264,7 @@ export default function AddDriver() {
               type="submit"
               className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg"
             >
-              Save Driver
+              Save Employee
             </button>
             <button
               type="button"

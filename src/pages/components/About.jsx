@@ -18,20 +18,20 @@ export default function About() {
                 </h2>
 
                 <p className="text-lg md:text-xl leading-8 text-gray-200">
-                    VisionTrack is an innovative platform designed to bridge the gap between schools, parents, and school buses by providing real-time location tracking, instant notifications, and enhanced student safety throughout every journey.
+                    VisionTrack is an innovative employee management platform designed to simplify workforce operations by bringing employee records, attendance, performance tracking, payroll, and analytics together in one secure and reliable platform.
                     <br /><br />
 
                     <span className="text-yellow-400 font-semibold">
-                        Ensure student safety and peace of mind.
+                        Ensure employee satisfaction and productivity.
                     </span>
 
                     <br /><br />
 
-                    Using smart GPS technology, we connect schools, parents, drivers, and administrators through real-time bus tracking, instant notifications, and route monitoring to ensure every student travels safely and arrives on time.
+                    Using smart GPS technology, we connect Employee and Management through real-time employee tracking, instant notifications, and route monitoring to ensure every employee travels safely and arrives on time.
 
                     <br /><br />
 
-                    Together, we can build a future where every student travels safely and every parent stays informed.
+                    Together, we can build a future where every employee travels safely and every manager stays informed.
                 </p>
             </div>
         </section>

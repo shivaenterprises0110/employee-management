@@ -9,11 +9,11 @@ export default function Footer() {
         <div>
 
           <h3 className="text-yellow-400 text-2xl font-bold">
-            SchoolBusTracker
+            VisionTrack
           </h3>
 
           <p className="mt-3">
-            Keeping students safe,keeping parents informed.
+            Keeping employees safe, keeping managers informed.
           </p>
 
         </div>

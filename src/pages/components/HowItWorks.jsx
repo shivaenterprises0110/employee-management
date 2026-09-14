@@ -5,17 +5,17 @@ export default function HowItWorks() {
     {
       img: "https://img.icons8.com/color/96/login-rounded-right.png",
       title: "1. Login to the System",
-      desc: "School administrators securely log in to access the School Bus Tracker dashboard and manage transportation services.",
+      desc: "Managers securely log in to access the Employee Tracker dashboard and manage transportation services.",
     },
     {
-      img: "https://t4.ftcdn.net/jpg/04/34/12/27/360_F_434122786_W4lQVLQBYWBtUBGRwwo0jrfx31uYiFA4.jpg",
-      title: "2. Manage School Transportation",
-      desc: "Add buses, register drivers, enroll students, assign routes, and organize school transportation efficiently.",
+      img: "https://cviefvnvftkewddwuktu.supabase.co/storage/v1/object/sign/visiontrack/Eicon.png?token=eyJraWQiOiI5ZmNjOGQ1OC04MDVmLTQyNTYtOTgyYS00NDU3MDZhZGFhNzkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aXNpb250cmFjay9FaWNvbi5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5Mzk1NDYyLCJleHAiOjE4MjA5MzE0NjJ9.BmHHNFe4QdoQh6sGuR5Qf0cL_EsJ7gJB520_wJk9Dfs",
+      title: "2. Manage Employee Transportation",
+      desc: "Add E-ID, register employees, and organize workplace transportation efficiently.",
     },
     {
       img: "https://img.icons8.com/color/96/gps-device.png",
-      title: "3. Monitor Live Bus Tracking",
-      desc: "Track buses in real time, monitor routes, receive notifications, and ensure the safety of every student throughout the journey.",
+      title: "3. Monitor Live Employee Tracking",
+      desc: "Track employees in real time, monitor routes, receive notifications, and ensure the safety of every employee throughout the journey.",
     },
   ];
 

@@ -46,17 +46,17 @@ export default function Hero() {
             <div className="relative z-10 flex h-screen flex-col items-center justify-center pt-24 px-6 text-center animate-fadeIn">
 
                 <h1 className="mb-6 text-5xl font-extrabold leading-tight text-yellow-400 drop-shadow-lg md:text-6xl ">
-                    Trusted Technology for Safety
+                    Trusted Technology for Smarter 
                     <br />
-                    and Security Of Childrens.
+                    Employee Management.
                 </h1>
 
                 <p className="mb-8 max-w-2xl text-lg text-gray-200 md:text-xl">
-                    From identity cards to analytics, bring every part of your institution onto one reliable, future-ready platform.
+                    From employee records to performance analytics, manage every aspect of your workforce on one reliable, future-ready platform.
                     <br />
                     <br />
                     <span className="italic">
-                        “Ensuring every child reaches school safely, every single day.”
+                        “Empowering every employee to work smarter, stay connected, and grow every day.”
                     </span>
                 </p>
 
