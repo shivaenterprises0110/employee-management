@@ -63,11 +63,11 @@ export default function BusList() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold">Bus List</h1>
+          <h1 className="text-4xl font-bold">E-Id List</h1>
           <p className="text-gray-500 mt-1">Manage all registered school buses</p>
         </div>
         <div className="bg-blue-600 text-white px-5 py-3 rounded-xl shadow">
-          Total Buses : {filteredBuses.length}
+          Total E-Ids : {filteredBuses.length}
         </div>
       </div>
 
@@ -94,11 +94,11 @@ export default function BusList() {
             <table className="w-full">
               <thead className="bg-blue-600 text-white">
                 <tr>
-                  <th className="p-4">Bus</th>
-                  <th className="p-4">Number</th>
-                  <th className="p-4">Model</th>
+                  <th className="p-4">Employee</th>
+                  <th className="p-4">ID</th>
+                  {/* <th className="p-4">Model</th>
                   <th className="p-4">Capacity</th>
-                  <th className="p-4"></th>
+                  <th className="p-4"></th> */}
                   <th className="p-4">Actions</th>
                 </tr>
               </thead>
@@ -112,9 +112,9 @@ export default function BusList() {
                       </div>
                     </td>
                     <td className="p-4 text-center">{bus.bus_number}</td>
-                    <td className="p-4 text-center">{bus.vehicle_model}</td>
+                    {/* <td className="p-4 text-center">{bus.vehicle_model}</td>
                     <td className="p-4 text-center">{bus.capacity}</td>
-                    <td className="p-4 text-center">{bus.route_number}</td>
+                    <td className="p-4 text-center">{bus.route_number}</td> */}
                     <td className="p-4">
                       <div className="flex justify-center gap-3">
                         <button onClick={() => navigate(`/school/buses/view/${bus.id || bus.bus_id}`)} className="text-blue-600"><FaEye /></button>

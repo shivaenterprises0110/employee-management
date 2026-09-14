@@ -20,7 +20,7 @@ L.Icon.Default.mergeOptions({
 // VisionTrack Bus Marker
 const busIcon = new L.Icon({
     iconUrl:
-        "https://cviefvnvftkewddwuktu.supabase.co/storage/v1/object/sign/visiontrack/bus-icon.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV85ZmNjOGQ1OC04MDVmLTQyNTYtOTgyYS00NDU3MDZhZGFhNzkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aXNpb250cmFjay9idXMtaWNvbi5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg3MjQ5NjExLCJleHAiOjE4MTg3ODU2MTF9.yNW-gst7s06ngSvletBRnkT3YFAG4e57Qf8K4qeZa-E",
+        "https://cviefvnvftkewddwuktu.supabase.co/storage/v1/object/sign/visiontrack/Ticon.png?token=eyJraWQiOiI5ZmNjOGQ1OC04MDVmLTQyNTYtOTgyYS00NDU3MDZhZGFhNzkiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aXNpb250cmFjay9UaWNvbi5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg5MzY5NTAxLCJleHAiOjE4MjA5MDU1MDF9.vF4Tq_LshvwFOjpGz--PV6f7gg7TjWlMZFZ7u3YViIg",
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -35],
@@ -63,9 +63,9 @@ export default function LiveTracking() {
             ]
             : [17.2899, 76.8176];
     return (
-        <div className="p-6">
-            <h1 className="text-3xl font-bold mb-5">
-                Live Bus Tracking
+        <div className="p-0">
+            <h1 className="text-4xl font-bold mb-5">
+                Live Employee Tracking
             </h1>
 
             <div className="relative z-0">

@@ -12,7 +12,7 @@ export default function AddBus() {
     bus_name: "",
     vehicle_registration_number: "",
     vehicle_model: "",
-    capacity: "",
+    capacity: "1",
     route_number: "",
     route_name: "",
     school_id: loggedSchool?.school_id || "",
@@ -58,7 +58,7 @@ export default function AddBus() {
   };
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">Add Bus</h1>
+      <h1 className="text-4xl font-bold mb-8">Add E-ID</h1>
 
       <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
 
@@ -68,13 +68,13 @@ export default function AddBus() {
 
           <div className="md:col-span-2">
             <h2 className="text-xl font-semibold text-blue-600 border-b pb-2">
-              Bus Information
+              ID Information
             </h2>
           </div>
 
           <div>
             <label className="block mb-2 font-medium text-gray-700">
-              Bus Number
+              Employee ID
             </label>
 
             <input
@@ -82,14 +82,14 @@ export default function AddBus() {
               name="bus_number"
               value={bus.bus_number}
               onChange={handleChange}
-              placeholder="BUS-001"
+              placeholder="EMP-001"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
           </div>
 
           <div>
             <label className="block mb-2 font-medium text-gray-700">
-              Bus Name
+              Employee Name
             </label>
 
             <input
@@ -97,12 +97,12 @@ export default function AddBus() {
               name="bus_name"
               value={bus.bus_name}
               onChange={handleChange}
-              placeholder="School Bus 1"
+              placeholder="John Doe"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               Vehicle Registration Number
             </label>
@@ -115,9 +115,9 @@ export default function AddBus() {
               placeholder="KA32AB1234"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               Vehicle Model
             </label>
@@ -130,9 +130,9 @@ export default function AddBus() {
               placeholder="Ashok Leyland"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               Bus Capacity
             </label>
@@ -145,7 +145,7 @@ export default function AddBus() {
               placeholder="50"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             />
-          </div>
+          </div> */}
 
           {/* Route Information 
 
@@ -187,7 +187,7 @@ export default function AddBus() {
 
           <div>
             <label className="block mb-2 font-medium text-gray-700">
-              School ID
+              Company ID
             </label>
 
             <input

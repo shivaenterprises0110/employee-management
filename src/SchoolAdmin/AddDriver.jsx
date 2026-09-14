@@ -92,7 +92,7 @@ export default function AddDriver() {
   };
   return (
     <div>
-      <h1 className="text-4xl font-bold mb-8">Add Driver</h1>
+      <h1 className="text-4xl font-bold mb-8">Add Employee</h1>
 
       <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
 
@@ -102,13 +102,13 @@ export default function AddDriver() {
 
           <div className="md:col-span-2">
             <h2 className="text-xl font-semibold text-blue-600 border-b pb-2">
-              Driver Information
+              Employee Information
             </h2>
           </div>
 
           <div>
             <label className="block mb-2 font-medium text-gray-700">
-              Driver Name
+              Employee Name
             </label>
 
             <input
@@ -116,7 +116,7 @@ export default function AddDriver() {
               name="driver_name"
               value={driver.driver_name}
               onChange={handleChange}
-              placeholder="Enter driver name"
+              placeholder="Enter employee name"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             />
           </div>
@@ -151,7 +151,7 @@ export default function AddDriver() {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="block mb-2 font-medium text-gray-700">
               License Number
             </label>
@@ -164,11 +164,11 @@ export default function AddDriver() {
               placeholder="Driving license number"
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             />
-          </div>
+          </div> */}
 
           <div>
             <label className="block mb-2 font-medium text-gray-700">
-              Bus Number
+              E-ID 
             </label>
 
             <select
@@ -177,7 +177,7 @@ export default function AddDriver() {
               onChange={handleChange}
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             >
-              <option value="">Select Bus</option>
+              <option value="">Select E-ID</option>
 
               {buses.map((bus) => (
                 <option key={bus.id} value={bus.id}>

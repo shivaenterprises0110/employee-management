@@ -14,7 +14,7 @@ export default function EditBus() {
     bus_name: "",
     vehicle_registration_number: "",
     vehicle_model: "",
-    capacity: "",
+    capacity: "1",
     route_number: "",
     route_name: "",
     school_id: loggedSchool?.school_id || "",
@@ -65,7 +65,7 @@ export default function EditBus() {
   return (
     <div>
       <h1 className="mb-6 text-2xl font-bold sm:text-3xl lg:text-4xl">
-        Edit Bus
+        Edit E-Id
       </h1>
 
       <div className="rounded-2xl border border-gray-200 bg-white p-4 shadow-lg sm:p-8">
@@ -75,13 +75,13 @@ export default function EditBus() {
         >
           <div className="md:col-span-2">
             <h2 className="border-b pb-2 text-xl font-semibold text-blue-600">
-              Bus Information
+              E-Id Information
             </h2>
           </div>
 
           <div>
             <label className="mb-2 block font-medium">
-              Bus Number
+              Employee Number
             </label>
 
             <input
@@ -95,7 +95,7 @@ export default function EditBus() {
 
           <div>
             <label className="mb-2 block font-medium">
-              Bus Name
+              Employee Name
             </label>
 
             <input
@@ -107,7 +107,7 @@ export default function EditBus() {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="mb-2 block font-medium">
               Vehicle Registration Number
             </label>
@@ -119,9 +119,9 @@ export default function EditBus() {
               onChange={handleChange}
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label className="mb-2 block font-medium">
               Vehicle Model
             </label>
@@ -133,9 +133,9 @@ export default function EditBus() {
               onChange={handleChange}
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             />
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label className="mb-2 block font-medium">
               Capacity
             </label>
@@ -147,12 +147,12 @@ export default function EditBus() {
               onChange={handleChange}
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             />
-          </div>
+          </div> */}
 
           <div className="md:col-span-2">
              <div>
             <label className="block mb-2 font-medium text-gray-700">
-              School ID
+              Company ID
             </label>
 
             <input
@@ -170,7 +170,7 @@ export default function EditBus() {
               type="submit"
               className="rounded-xl bg-blue-600 px-6 py-3 text-white font-semibold hover:bg-blue-700"
             >
-              Update Bus
+              Update E-Id
             </button>
 
             <button

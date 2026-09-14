@@ -67,7 +67,7 @@ export default function SchoolNavbar({
         <div>
 
           <h1 className="text-2xl font-bold text-slate-800">
-            School Admin Dashboard
+            Employee Admin Dashboard
           </h1>
 
           <p className="text-gray-500 text-sm">
@@ -96,9 +96,9 @@ export default function SchoolNavbar({
 
         </button> */}
 
-        <div className="relative" ref={dropdownRef}>
+        {/* <div className="relative" ref={dropdownRef}> */}
 
-          <button
+          {/* <button
             onClick={() => setOpen(!open)}
             className="flex items-center gap-3"
           >
@@ -119,9 +119,9 @@ export default function SchoolNavbar({
 
             </div>
 
-          </button>
+          </button> */}
 
-          {open && (
+          {/* {open && (
 
             <div className="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-xl border overflow-hidden z-50">
 
@@ -143,9 +143,9 @@ export default function SchoolNavbar({
 
             </div>
 
-          )}
+          )} */}
 
-        </div>
+        {/* </div> */}
 
       </div>
 

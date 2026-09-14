@@ -72,7 +72,7 @@ export default function Login() {
             // Allow only School Admin
             if (userObj.role !== "school_admin") {
                 setError(
-                    "Only School Admin can login here."
+                    "Only  Admin can login here."
                 );
                 return;
             }

@@ -4,6 +4,7 @@ import {
   FaHome,
   FaUserGraduate,
   FaBus,
+  FaIdCard,
   FaMapMarkedAlt,
   FaChevronDown,
   FaChevronRight,
@@ -58,11 +59,11 @@ export default function SchoolSidebar({
               to="/school/dashboard"
               className="text-2xl font-bold"
             >
-              🚌 BusTracker
+              🧑‍💼 E-Tracker
             </Link>
 
             <p className="text-sm text-slate-400 mt-1">
-              School Bus Tracking
+              Employee Management
             </p>
 
           </div>
@@ -100,7 +101,7 @@ export default function SchoolSidebar({
             Management
           </p>
 
-          {/* Students */}
+          {/* Students
 
           <button
             onClick={() => setStudentsOpen(!studentsOpen)}
@@ -138,7 +139,7 @@ export default function SchoolSidebar({
               </Link>
 
             </div>
-          )}
+          )} */}
 
           {/* Drivers */}
 
@@ -147,8 +148,8 @@ export default function SchoolSidebar({
             className="w-full flex justify-between items-center px-4 py-3 rounded-lg hover:bg-slate-700 mt-3"
           >
             <span className="flex items-center gap-3">
-              <FaBus />
-              Drivers
+              <FaIdCard />
+              Employee
             </span>
 
             {driversOpen ? (
@@ -166,7 +167,7 @@ export default function SchoolSidebar({
                 onClick={() => setSidebarOpen(false)}
                 className={menuClass("/school/adddriver")}
               >
-                Add Driver
+                Add Employees
               </Link>
 
               <Link
@@ -174,7 +175,7 @@ export default function SchoolSidebar({
                 onClick={() => setSidebarOpen(false)}
                 className={menuClass("/school/drivers")}
               >
-                List Drivers
+                List Employees
               </Link>
 
             </div>
@@ -187,8 +188,8 @@ export default function SchoolSidebar({
             className="w-full flex justify-between items-center px-4 py-3 rounded-lg hover:bg-slate-700 mt-3"
           >
             <span className="flex items-center gap-3">
-              <FaBus />
-              Buses
+              <FaIdCard />
+              E-ID
             </span>
 
             {busesOpen ? (
@@ -206,7 +207,7 @@ export default function SchoolSidebar({
                 onClick={() => setSidebarOpen(false)}
                 className={menuClass("/school/addbus")}
               >
-                Add Bus
+                Add E-Id
               </Link>
 
               <Link
@@ -214,7 +215,7 @@ export default function SchoolSidebar({
                 onClick={() => setSidebarOpen(false)}
                 className={menuClass("/school/buses")}
               >
-                List Buses
+                List E-Id
               </Link>
             </div>
           )}

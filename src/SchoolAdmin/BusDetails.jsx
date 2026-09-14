@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../api";
-import { FaBus } from "react-icons/fa";
+import { FaRegIdCard } from "react-icons/fa";
 
 export default function BusDetails() {
   const { id } = useParams();
@@ -58,7 +58,7 @@ export default function BusDetails() {
   if (!bus) {
     return (
       <div className="text-center py-10 text-red-600 font-semibold">
-        Bus not found.
+        E-Id not found.
       </div>
     );
   }
@@ -69,9 +69,9 @@ export default function BusDetails() {
 
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold">Bus Details</h1>
+          <h1 className="text-4xl font-bold">E-Id Details</h1>
           <p className="text-gray-500 mt-1">
-            View complete bus information
+            View complete E-Id information
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function BusDetails() {
         <div className="flex items-center gap-5 mb-8">
 
           <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-3xl">
-            <FaBus />
+            <FaRegIdCard />
           </div>
 
           <div>
@@ -108,20 +108,20 @@ export default function BusDetails() {
         <div className="grid md:grid-cols-2 gap-6">
 
           <div>
-            <label className="text-gray-500">Bus Name</label>
+            <label className="text-gray-500">Employee Name</label>
             <p className="font-semibold text-lg">
               {bus.bus_name}
             </p>
           </div>
 
           <div>
-            <label className="text-gray-500">Bus Number</label>
+            <label className="text-gray-500">Employee Number</label>
             <p className="font-semibold text-lg">
               {bus.bus_number}
             </p>
           </div>
 
-          <div>
+          {/* <div>
             <label className="text-gray-500">
               Vehicle Registration Number
             </label>
@@ -137,16 +137,16 @@ export default function BusDetails() {
             <p className="font-semibold text-lg">
               {bus.vehicle_model}
             </p>
-          </div>
+          </div> */}
 
-          <div>
+          {/* <div>
             <label className="text-gray-500">
               Capacity
             </label>
             <p className="font-semibold text-lg">
               {bus.capacity}
             </p>
-          </div>
+          </div> */}
 
           {/* <div>
             <label className="text-gray-500">
@@ -168,7 +168,7 @@ export default function BusDetails() {
 
           <div>
             <label className="text-gray-500">
-              School
+              Company
             </label>
             <p className="font-semibold text-lg">
               {schoolName}

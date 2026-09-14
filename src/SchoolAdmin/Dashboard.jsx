@@ -57,22 +57,22 @@ export default function Dashboard() {
   };
 
   const cards = [
+    // {
+    //   title: "Total Students",
+    //   value: stats.students,
+    //   icon: <FaUserGraduate className="text-4xl text-blue-600" />,
+    //   bg: "bg-blue-50",
+    // },
     {
-      title: "Total Students",
-      value: stats.students,
-      icon: <FaUserGraduate className="text-4xl text-blue-600" />,
-      bg: "bg-blue-50",
-    },
-    {
-      title: "Total Drivers",
+      title: "Total Employees",
       value: stats.drivers,
       icon: <FaIdCard className="text-4xl text-green-600" />,
       bg: "bg-green-50",
     },
     {
-      title: "Total Buses",
+      title: "Total E-IDs",
       value: stats.buses,
-      icon: <FaBus className="text-4xl text-orange-500" />,
+      icon: <FaIdCard className="text-4xl text-orange-500" />,
       bg: "bg-orange-50",
     },
   ];
@@ -90,7 +90,7 @@ export default function Dashboard() {
         </h1>
 
         <p className="mt-3 text-lg text-blue-100">
-          Welcome to your School Transport Dashboard
+          Welcome to your Employee Dashboard
         </p>
 
         {/* <div className="mt-6 inline-block rounded-xl bg-white/20 px-4 py-2">
