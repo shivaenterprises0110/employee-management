@@ -28,7 +28,7 @@ export default function BusList() {
       setBuses(res.data.buses || []);
     } catch (err) {
       console.error(err);
-      setError("Failed to load buses.");
+      setError("Failed to load e-ids.");
     } finally {
       setLoading(false);
     }
@@ -39,14 +39,14 @@ export default function BusList() {
   }, []);
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this bus?")) return;
+    if (!window.confirm("Are you sure you want to delete this E-id?")) return;
     try {
       await axios.delete(`${API_URL}/buses/${id}`);
-      alert("Bus deleted successfully.");
+      alert("E-id deleted successfully.");
       fetchBuses();
     } catch (err) {
       console.error(err);
-      alert(err.response?.data?.error || "Failed to delete bus.");
+      alert(err.response?.data?.error || "Failed to delete e-id.");
     }
   };
 

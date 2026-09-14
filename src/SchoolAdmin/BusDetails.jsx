@@ -41,7 +41,7 @@ export default function BusDetails() {
       }
     } catch (err) {
       console.error(err);
-      alert("Failed to load bus details.");
+      alert("Failed to load E-ID details.");
     } finally {
       setLoading(false);
     }

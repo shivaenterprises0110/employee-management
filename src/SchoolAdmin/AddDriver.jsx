@@ -77,16 +77,16 @@ export default function AddDriver() {
         bus_id: driver.bus_id,
       });
 
-      alert("Driver Added Successfully");
+      alert("Employee Added Successfully");
 
       navigate("/school/dashboard");
     } catch (err) {
-      console.error("Driver Error:", err.response?.data);
+      console.error("Employee Error:", err.response?.data);
 
       alert(
         err.response?.data?.error ||
         err.response?.data?.message ||
-        "Failed to add driver"
+        "Failed to add employee"
       );
     }
   };

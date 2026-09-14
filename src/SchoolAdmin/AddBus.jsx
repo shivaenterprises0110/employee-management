@@ -45,14 +45,14 @@ export default function AddBus() {
 
       console.log(res.data);
 
-      alert("Bus Added Successfully");
+      alert("E-Id Added Successfully");
 
       navigate("/school/dashboard");
     } catch (err) {
       console.error(err);
       alert(
         err.response?.data?.message ||
-        "Failed to add bus"
+        "Failed to add e-id"
       );
     }
   };
@@ -222,7 +222,7 @@ export default function AddBus() {
               type="submit"
               className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:shadow-lg"
             >
-              Save Bus
+              Save E-ID
             </button>
             
             <button 

@@ -60,29 +60,29 @@ export default function EditDriver() {
 
     try {
       await axios.put(`${API_URL}/drivers/${id}`, driver);
-      alert("Driver updated successfully.");
+      alert("Employee updated successfully.");
       navigate("/school/drivers");
     } catch (err) {
       console.error(err);
-      alert(err.response?.data?.error || "Failed to update driver.");
+      alert(err.response?.data?.error || "Failed to update employee.");
     }
   };
 
   return (
     <div>
-      <h1 className="mb-6 text-3xl font-bold">Edit Driver</h1>
+      <h1 className="mb-6 text-3xl font-bold">Edit Employee</h1>
 
       <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
         <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
           <div className="md:col-span-2">
             <h2 className="border-b pb-2 text-xl font-semibold text-blue-600">
-              Driver Information
+              Employee Information
             </h2>
           </div>
 
           <div>
-            <label className="mb-2 block font-medium">Driver Name</label>
+            <label className="mb-2 block font-medium">Employee Name</label>
             <input
               type="text"
               name="driver_name"
@@ -136,7 +136,7 @@ export default function EditDriver() {
               type="submit"
               className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700"
             >
-              Update Driver
+              Update Employee
             </button>
 
             <button

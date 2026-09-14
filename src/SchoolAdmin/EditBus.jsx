@@ -53,12 +53,12 @@ export default function EditBus() {
     try {
       await axios.put(`${API_URL}/buses/${id}`, bus);
 
-      alert("Bus updated successfully.");
+      alert("E-Id updated successfully.");
 
       navigate("/school/buses");
     } catch (err) {
       console.error(err);
-      alert(err.response?.data?.error || "Failed to update bus.");
+      alert(err.response?.data?.error || "Failed to update e-id.");
     }
   };
 

@@ -38,7 +38,7 @@ export default function DriverList() {
 
     } catch (err) {
       console.error(err);
-      setError("Failed to load drivers.");
+      setError("Failed to load Employees.");
     } finally {
       setLoading(false);
     }
@@ -48,15 +48,15 @@ export default function DriverList() {
   }, []);
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this driver?")) return;
+    if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     try {
       await axios.delete(`${API_URL}/drivers/${id}`);
-      alert("Driver deleted successfully.");
+      alert("Employee deleted successfully.");
       fetchDrivers();
     } catch (err) {
       console.error(err);
-      alert(err.response?.data?.error || "Failed to delete driver.");
+      alert(err.response?.data?.error || "Failed to delete employee.");
     }
   };
 
