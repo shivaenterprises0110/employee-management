@@ -73,11 +73,11 @@ export default function DriverList() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold">Drivers</h1>
-          <p className="text-gray-500 mt-1">Manage all registered drivers</p>
+          <h1 className="text-4xl font-bold">Employees</h1>
+          <p className="text-gray-500 mt-1">Manage all registered Employees</p>
         </div>
         <div className="bg-blue-600 text-white px-5 py-3 rounded-xl shadow">
-          Total Drivers : {filteredDrivers.length}
+          Total Employees : {filteredDrivers.length}
         </div>
       </div>
 
@@ -86,7 +86,7 @@ export default function DriverList() {
           <FaSearch className="absolute left-4 top-4 text-gray-400" />
           <input
             type="text"
-            placeholder="Search driver..."
+            placeholder="Search employee..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-300 bg-gray-50"
@@ -103,11 +103,11 @@ export default function DriverList() {
           <table className="w-full">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="p-4 text-center">Driver</th>
+                <th className="p-4 text-center">Employee</th>
                 {/* <th className="p-4">ID</th> */}
                 <th className="p-4 text-center">Phone</th>
                 {/* <th className="p-4">License</th> */}
-                <th className="p-4 text-center">Bus</th>
+                <th className="p-4 text-center">E-id</th>
                 <th className="p-4 text-center">Actions</th>
               </tr>
             </thead>

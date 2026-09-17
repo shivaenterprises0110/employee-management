@@ -103,7 +103,7 @@ export default function EditDriver() {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className="mb-2 block font-medium">License Number</label>
             <input
               type="text"
@@ -112,10 +112,10 @@ export default function EditDriver() {
               onChange={handleChange}
               className="w-full rounded-xl border border-gray-300 bg-gray-50 p-3"
             />
-          </div>
+          </div> */}
 
           <div>
-            <label className="mb-2 block font-medium">Bus</label>
+            <label className="mb-2 block font-medium">E-ID</label>
             <select
               name="bus_id"
               value={driver.bus_id}

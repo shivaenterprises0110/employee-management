@@ -52,17 +52,17 @@ export default function DriverDetails() {
   };
 
   if (loading) {
-    return <div className="p-8 text-center">Loading driver...</div>;
+    return <div className="p-8 text-center">Loading Employee...</div>;
   }
 
   if (!driver) {
-    return <div className="p-8 text-center">Driver not found.</div>;
+    return <div className="p-8 text-center">Employee not found.</div>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">Driver Details</h1>
+        <h1 className="text-3xl font-bold">Employee Details</h1>
 
         <button
           onClick={() => navigate("/school/drivers")}
@@ -76,7 +76,7 @@ export default function DriverDetails() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div>
-            <label className="font-semibold text-gray-500">Driver Name</label>
+            <label className="font-semibold text-gray-500">Employee Name</label>
             <p className="mt-1">{driver.driver_name}</p>
           </div>
           <div>
@@ -94,18 +94,18 @@ export default function DriverDetails() {
             <p className="mt-1">{driver.phone}</p>
           </div>
 
-          <div>
+          {/* <div>
             <label className="font-semibold text-gray-500">License Number</label>
             <p className="mt-1">{driver.license_number}</p>
-          </div>
+          </div> */}
 
           <div>
-            <label className="font-semibold text-gray-500">School</label>
+            <label className="font-semibold text-gray-500">Management</label>
             <p className="mt-1">{schoolName}</p>
           </div>
 
           <div>
-            <label className="font-semibold text-gray-500">Bus Name</label>
+            <label className="font-semibold text-gray-500">E-Id</label>
             <p className="mt-1">{busName}</p>
           </div>
 
