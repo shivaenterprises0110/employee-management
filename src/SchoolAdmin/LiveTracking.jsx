@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+    MapContainer,
+    TileLayer,
+    Marker,
+    Popup,
+    LayersControl,
+} from "react-leaflet";
+
 import L from "leaflet";
 import axios from "axios";
 import "leaflet/dist/leaflet.css";
@@ -75,10 +82,24 @@ export default function LiveTracking() {
                     style={{ height: "75vh", width: "100%" }}
                     className="rounded-xl"
                 >
-                    <TileLayer
-                        attribution="&copy; OpenStreetMap contributors"
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
+                    <LayersControl position="topright">
+
+                        <LayersControl.BaseLayer name="Satellite View">
+                            <TileLayer
+                                attribution="Tiles © Esri"
+                                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                            />
+                        </LayersControl.BaseLayer>
+
+                        <LayersControl.BaseLayer checked name=" Map">
+                            <TileLayer
+                                attribution="&copy; OpenStreetMap contributors"
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+                        </LayersControl.BaseLayer>
+
+
+                    </LayersControl>
 
                     {validBuses.map((bus) => (
                         <Marker
@@ -99,5 +120,5 @@ export default function LiveTracking() {
                 </MapContainer>
             </div>
         </div>
-            );
+    );
 }
