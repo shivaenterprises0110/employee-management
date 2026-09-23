@@ -68,7 +68,7 @@ export default function RouteHistory() {
   };
 
   const loadHistory = async () => {
-    if (!busId) return alert("Select a bus");
+    if (!busId) return alert("Select a Employee");
 
     try {
       const res = await axios.get(
