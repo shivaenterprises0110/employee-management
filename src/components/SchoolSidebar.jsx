@@ -217,6 +217,15 @@ export default function SchoolSidebar({
               >
                 List E-Id
               </Link>
+
+               <Link
+                to="/school/route-history"
+                onClick={() => setSidebarOpen(false)}
+                className={menuClass("/school/route-history")}
+              >
+                Route History
+              </Link>
+              
             </div>
           )}
 
