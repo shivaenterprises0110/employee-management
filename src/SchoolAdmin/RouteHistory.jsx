@@ -151,7 +151,9 @@ export default function RouteHistory() {
 
     try {
       // OSRM needs longitude,latitude
-      const coordinates = gpsPoints
+      const reducedPoints = gpsPoints.filter((_, i) => i % 5 === 0);
+
+      const coordinates = reducedPoints
         .map((p) => `${p.longitude},${p.latitude}`)
         .join(";");
 
@@ -266,8 +268,10 @@ export default function RouteHistory() {
       : currentIndex;
 
   const visibleRoadRoute = videoMode
-    ? roadRoute.slice(0, roadCurrentIndex + 1)
-    : roadRoute;
+    ? (roadRoute.length
+      ? roadRoute.slice(0, roadCurrentIndex + 1)
+      : positions.slice(0, currentIndex + 1))
+    : (roadRoute.length ? roadRoute : positions);
 
   // Calculate total distance (km)
   function getDistance(lat1, lon1, lat2, lon2) {
@@ -311,11 +315,11 @@ export default function RouteHistory() {
   });
 
   const endIcon = L.icon({
-  iconUrl: endicon,
-  iconSize: [42, 42],
-  iconAnchor: [21, 21],
-  popupAnchor: [0, -20],
-});
+    iconUrl: endicon,
+    iconSize: [42, 42],
+    iconAnchor: [21, 21],
+    popupAnchor: [0, -20],
+  });
 
 
 
@@ -548,9 +552,15 @@ export default function RouteHistory() {
                 icon={endIcon}
                 position={
                   videoMode
-                    ? roadRoute[
-                    Math.min(roadCurrentIndex, roadRoute.length - 1)
-                    ]
+                    ? (
+                      roadRoute.length
+                        ? roadRoute[
+                        Math.min(roadCurrentIndex, roadRoute.length - 1)
+                        ]
+                        : positions[
+                        Math.min(currentIndex, positions.length - 1)
+                        ]
+                    )
                     : [
                       Number(route[route.length - 1].latitude),
                       Number(route[route.length - 1].longitude),
